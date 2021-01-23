@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+  <persistence-unit name="module06-persistence-unit" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <mapping-file>META-INF/listeners.xml</mapping-file>
+    <class>com.xanxau.persistence.module06.Artist</class>
+    <class>com.xanxau.persistence.module06.Author</class>
+    <class>com.xanxau.persistence.module06.Musician</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.create-target" value="module06-create.ddl"/>
+      <property name="javax.persistence.schema-generation.scripts.drop-target" value="module06-drop.ddl"/>
+      <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:module06-db"/>
+      <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:~/module06-db"/>-->
+      <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/module06-db"/>-->
+      <property name="eclipselink.logging.level" value="INFO"/>
+    </properties>
+  </persistence-unit>
+</persistence>
